@@ -1,0 +1,118 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autono - Sovereign Edition</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
+        
+        :root {
+            --thanos-gold: #fbbf24;
+            --thanos-indigo: #4338ca;
+            --thanos-void: #020617;
+        }
+
+        body {
+            background-color: var(--thanos-void);
+            color: #f8fafc;
+            margin: 0;
+            font-family: 'Inter', sans-serif;
+            overflow: hidden;
+        }
+
+        .thanos-gradient {
+            background: linear-gradient(135deg, #1e1b4b 0%, #020617 100%);
+        }
+
+        .gold-glow {
+            box-shadow: 0 0 20px rgba(251, 191, 36, 0.2);
+        }
+
+        .scanline {
+            width: 100%;
+            height: 2px;
+            background: rgba(99, 102, 241, 0.1);
+            position: absolute;
+            top: 0;
+            z-index: 100;
+            animation: scan 4s linear infinite;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: -10%; opacity: 0; }
+            50% { opacity: 0.5; }
+            100% { top: 110%; opacity: 0; }
+        }
+
+        .reality-warp {
+            animation: warp 0.5s ease-out;
+        }
+
+        @keyframes warp {
+            0% { transform: scale(1); filter: brightness(1) hue-rotate(0deg); }
+            50% { transform: scale(1.05); filter: brightness(3) hue-rotate(90deg) contrast(2); }
+            100% { transform: scale(1); filter: brightness(1) hue-rotate(0deg); }
+        }
+
+        .glitch-text {
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 #fbbf24, -2px 0 #4338ca; }
+            5% { text-shadow: -2px 0 #fbbf24, 2px 0 #4338ca; }
+            10% { text-shadow: 2px 0 #fbbf24, -2px 0 #4338ca; }
+            15% { text-shadow: 0 0 transparent; }
+        }
+
+        ::-webkit-scrollbar {
+            width: 5px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #020617;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--thanos-indigo);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 3px;
+        }
+
+        @keyframes scan-laser {
+            0% { top: 0%; }
+            50% { top: 100%; }
+            100% { top: 0%; }
+        }
+
+        .animate-scan-laser {
+            animation: scan-laser 2s linear infinite;
+        }
+    </style>
+<script type="importmap">
+{
+  "imports": {
+    "react-dom/": "https://esm.sh/react-dom@^19.2.4/",
+    "react/": "https://esm.sh/react@^19.2.4/",
+    "react": "https://esm.sh/react@^19.2.4",
+    "react-router-dom": "https://esm.sh/react-router-dom@^7.13.0",
+    "@google/genai": "https://esm.sh/@google/genai@^1.40.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+    <div class="scanline"></div>
+    <div id="root"></div>
+<script type="module" src="/src/index.tsx"></script>
+</body>
+</html>
